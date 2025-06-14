@@ -1,0 +1,17 @@
+Tabelas e Relacionamentos:
+
+1. Usuário — Voto
+Usuário 1 — N Voto
+Um usuário pode registrar vários votos, em diferentes enquetes, mas só pode ter no máximo 1 voto por enquete.
+
+2. Enquete — Opção
+Enquete 1 — N Opção
+Cada enquete tem várias opções de resposta e cada opção pertence a uma única enquete.
+
+3.  Opção — Voto
+Opção 1 — N Voto
+Cada opção pode receber vários votos e cada voto está associado a uma única opção.
+
+4. Enquete — Voto
+Enquete 1 — N Voto
+Cada enquete pode ter muitos votos e cada voto pertence a uma única enquete.
