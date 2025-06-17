@@ -1,0 +1,14 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Spring Boot-SistemavotacaoApplication<Codigo>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.pucminas.projeto.software.sistemavotacao.SistemavotacaoApplication",
+      "projectName": "Codigo",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    }
+  ]
+}

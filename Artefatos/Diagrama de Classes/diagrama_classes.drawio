@@ -1,0 +1,127 @@
+<mxfile host="app.diagrams.net" modified="2024-03-19T00:00:00.000Z" agent="Mozilla/5.0" version="21.7.5" etag="your-etag" type="device">
+  <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
+    <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-0"/>
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0"/>
+        
+        <!-- Model Classes -->
+        <mxCell id="enquete" value="Enquete" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="40" y="40" width="160" height="140" as="geometry"/>
+        </mxCell>
+        <mxCell id="enquete_attrs" value="- id: Long&#xa;- titulo: String&#xa;- descricao: String&#xa;- dataInicio: LocalDateTime&#xa;- dataFim: LocalDateTime&#xa;- ativa: boolean" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;" vertex="1" parent="enquete">
+          <mxGeometry y="26" width="160" height="104" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="opcao_voto" value="OpcaoVoto" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="280" y="40" width="160" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="opcao_voto_attrs" value="- id: Long&#xa;- descricao: String" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;" vertex="1" parent="opcao_voto">
+          <mxGeometry y="26" width="160" height="54" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="voto" value="Voto" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="520" y="40" width="160" height="140" as="geometry"/>
+        </mxCell>
+        <mxCell id="voto_attrs" value="- id: Long&#xa;- cpfVotante: String&#xa;- dataVoto: LocalDateTime" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;" vertex="1" parent="voto">
+          <mxGeometry y="26" width="160" height="104" as="geometry"/>
+        </mxCell>
+        
+        <!-- Service Classes -->
+        <mxCell id="enquete_service" value="EnqueteService" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="40" y="240" width="160" height="140" as="geometry"/>
+        </mxCell>
+        <mxCell id="enquete_service_methods" value="+ criarEnquete(Enquete): Enquete&#xa;+ listarEnquetes(): List&lt;Enquete&gt;&#xa;+ buscarEnquete(Long): Enquete&#xa;+ adicionarOpcao(Long, OpcaoVoto): Enquete&#xa;+ finalizarEnquete(Long): Enquete" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;" vertex="1" parent="enquete_service">
+          <mxGeometry y="26" width="160" height="104" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="voto_service" value="VotoService" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="280" y="240" width="160" height="140" as="geometry"/>
+        </mxCell>
+        <mxCell id="voto_service_methods" value="+ registrarVoto(Long, Long, String): Voto&#xa;+ listarVotosPorEnquete(Long): List&lt;Voto&gt;&#xa;+ listarVotos(Long): Map&lt;Long, Long&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;" vertex="1" parent="voto_service">
+          <mxGeometry y="26" width="160" height="104" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="apuracao_service" value="ApuracaoService" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="520" y="240" width="160" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="apuracao_service_methods" value="+ apurarResultados(Long, TipoApuracao): Map&lt;OpcaoVoto, Long&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;" vertex="1" parent="apuracao_service">
+          <mxGeometry y="26" width="160" height="54" as="geometry"/>
+        </mxCell>
+        
+        <!-- Controller Classes -->
+        <mxCell id="enquete_controller" value="EnqueteController" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="40" y="440" width="160" height="140" as="geometry"/>
+        </mxCell>
+        <mxCell id="enquete_controller_methods" value="+ criarEnquete(Enquete): ResponseEntity&lt;Enquete&gt;&#xa;+ listarEnquetes(): ResponseEntity&lt;List&lt;Enquete&gt;&gt;&#xa;+ buscarEnquete(Long): ResponseEntity&lt;Enquete&gt;&#xa;+ adicionarOpcao(Long, OpcaoVoto): ResponseEntity&lt;Enquete&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;" vertex="1" parent="enquete_controller">
+          <mxGeometry y="26" width="160" height="104" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="voto_controller" value="VotoController" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="280" y="440" width="160" height="140" as="geometry"/>
+        </mxCell>
+        <mxCell id="voto_controller_methods" value="+ registrarVoto(Long, VotoDTO): ResponseEntity&lt;Voto&gt;&#xa;+ listarVotos(Long): ResponseEntity&lt;Map&lt;Long, Long&gt;&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;" vertex="1" parent="voto_controller">
+          <mxGeometry y="26" width="160" height="104" as="geometry"/>
+        </mxCell>
+        
+        <!-- Strategy Interfaces -->
+        <mxCell id="validacao_strategy" value="&lt;&lt;interface&gt;&gt;&#xa;ValidacaoVotoStrategy" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="520" y="440" width="160" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="validacao_strategy_methods" value="+ validar(Voto): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;" vertex="1" parent="validacao_strategy">
+          <mxGeometry y="26" width="160" height="54" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="apuracao_strategy" value="&lt;&lt;interface&gt;&gt;&#xa;ApuracaoStrategy" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="520" y="560" width="160" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="apuracao_strategy_methods" value="+ apurar(Enquete): Map&lt;OpcaoVoto, Long&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;" vertex="1" parent="apuracao_strategy">
+          <mxGeometry y="26" width="160" height="54" as="geometry"/>
+        </mxCell>
+        
+        <!-- Relationships -->
+        <mxCell id="rel1" value="" style="endArrow=open;endFill=1;endSize=12;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="enquete" target="enquete_service">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="390" y="420" as="sourcePoint"/>
+            <mxPoint x="550" y="420" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="rel2" value="" style="endArrow=open;endFill=1;endSize=12;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="voto" target="voto_service">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="390" y="420" as="sourcePoint"/>
+            <mxPoint x="550" y="420" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="rel3" value="" style="endArrow=open;endFill=1;endSize=12;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="enquete_service" target="enquete_controller">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="390" y="420" as="sourcePoint"/>
+            <mxPoint x="550" y="420" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="rel4" value="" style="endArrow=open;endFill=1;endSize=12;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="voto_service" target="voto_controller">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="390" y="420" as="sourcePoint"/>
+            <mxPoint x="550" y="420" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="rel5" value="" style="endArrow=open;endFill=1;endSize=12;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="validacao_strategy" target="voto_service">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="390" y="420" as="sourcePoint"/>
+            <mxPoint x="550" y="420" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="rel6" value="" style="endArrow=open;endFill=1;endSize=12;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="apuracao_strategy" target="apuracao_service">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="390" y="420" as="sourcePoint"/>
+            <mxPoint x="550" y="420" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile> 
